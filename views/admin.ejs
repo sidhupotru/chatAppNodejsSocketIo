@@ -1,0 +1,23 @@
+<html>
+  <head>
+     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+  </head>
+  <body>
+    <header id="header"></header>
+    <input type="hidden" id="username" class="username" placeholder="username" autocomplete="off"/>
+	<div id="waiting-msg">waiting to receive message from clients....</div> 
+	<div class="chat-popup" id="serverForm">
+	  <!-- <form class="form-container" novalidate>
+		<h3>Chat with user</h3>
+		<div>
+		   <ul id="server-messages" class="server-messages">
+		   </ul>
+		</div>
+		<input placeholder="Type message.." class="message" id="servermessage" name="msg" autocomplete="off"></input>
+	  </form> -->
+	</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/serverChat.js"></script>
+  </body>
+</html>
