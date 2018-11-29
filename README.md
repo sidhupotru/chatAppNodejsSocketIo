@@ -3,11 +3,11 @@
 #install nodejs from below link
    https://nodejs.org/en/
 
-#install nodemodules using
-   npm install
+#install nodemodules using following command
+npm install
 
-#run app using 
-    npm run start
+#run app using following command 
+npm run start
 
 #test app using below links
   #for admin 

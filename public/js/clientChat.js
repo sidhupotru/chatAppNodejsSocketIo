@@ -2,6 +2,7 @@ $(function(){
 	console.log("index init");
 	var socket = io.connect("http://localhost:3000/");
 	$("#waiting-msg").hide();
+	$("#header").append("<h2 class='header'>User Page</h2>");
 	var client=true;
     var server=false;
     setTimeout(function(){

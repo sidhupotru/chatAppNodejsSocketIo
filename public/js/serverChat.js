@@ -2,6 +2,7 @@ $(function(){
 	console.log("index init");
 	var socket = io.connect("http://localhost:3000/?from=admin");
 	
+	$("#header").append("<h2 class='header'>Admin Page</h2>");
 	var client=false;
     var server=true;
     setTimeout(function(){
@@ -105,7 +106,7 @@ $(function(){
 				usersarray.push(data.username);
 				console.log(usersarray);
 				console.log(usersarray.indexOf(data.username));
-				$("#serverForm").append('<form class="form-container" id="client_'+data.username+'" novalidate><h3>Chat with user</h3><div><ul class="server-messages" id="server-messages_'+data.username+'"><li><div class="received-message"><h4>from:'+data.username+'</h4><p>message:'+data.message+'</p></div></li><br/></ul></div><input placeholder="Type message.." class="message" id="servermessage_'+data.username+'" name="msg" autocomplete="off"></input></form>')
+				$("#serverForm").append('<form class="form-container" id="client_'+data.username+'" novalidate><h3>'+data.username+'</h3><div><ul class="server-messages" id="server-messages_'+data.username+'"><li><div class="received-message"><h4>from:'+data.username+'</h4><p>message:'+data.message+'</p></div></li><br/></ul></div><input placeholder="Type message.." class="message" id="servermessage_'+data.username+'" name="msg" autocomplete="off"></input></form>')
 			}else{
 				$("#server-messages_"+data.username).append("<li><div class='received-message'><h4>from:"+data.username+"</h4><p>message:"+data.message+"</p></div></li><br/>");
 			}
