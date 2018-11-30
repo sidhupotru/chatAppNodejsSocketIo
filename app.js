@@ -73,6 +73,7 @@ io.on("connection",(socket)=>{
 		console.log(data);
 		var socketId="";
 			if(data.server){
+				console.log("Enter to server block new msg");
 				for(var i in clients){
 					console.log(clients[i].user+"   "+data.to)
 					if(clients[i].user==data.to){
@@ -181,9 +182,10 @@ io.on("connection",(socket)=>{
 			}
 		}else{
 			for(var i in clients){
+				console.log("client::"+clients[i].user)
 				if(clients[i].user==data.username){
-					notifyAdmin(clients[i].conectedto);
-					clients.splice(clients[i],1);
+					notifyAdmin(clients[i]);
+					clients.splice(i,1);
 					console.log("client disconnected:::"+i);
 				}
 			}
@@ -191,8 +193,9 @@ io.on("connection",(socket)=>{
 		console.log("disconnected event end");
 	});
 	
-	function notifyAdmin(admin){
+	function notifyAdmin(clientData){
 		var socketId;
+		var admin=clientData.conectedto;
 		for(var i in admins){
 			if(admins[i].user==admin){
 				socketId=admins[i].id;
@@ -200,7 +203,7 @@ io.on("connection",(socket)=>{
 			}
 		}
 		if(socketId){
-			io.sockets.sockets[socketId].emit('client_disconnected');
+			io.sockets.sockets[socketId].emit('client_disconnected',{clientData});
 		}
 		socketId="";
 	}

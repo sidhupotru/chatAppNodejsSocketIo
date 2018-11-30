@@ -5,6 +5,8 @@
 
 #install nodemodules using following command
 npm install
+#and
+npm install --save nodemon
 
 #run app using following command 
 npm run start

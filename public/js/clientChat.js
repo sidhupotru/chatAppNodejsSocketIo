@@ -13,7 +13,6 @@ $(function(){
 	var user = $("#username");
 	var to   = "";
 	var usersarray = [];
-	socket.emit("new_message",{client:client,server:server,username:user.val(),message:"hi"});
 	
 	// to.hide();
 	// msg.hide();
@@ -44,6 +43,7 @@ $(function(){
     socket.on("getName",function(data){
         $("#username").val(data.name);
         console.log(data.name);
+		socket.emit("new_message",{client:client,server:server,username:user.val(),message:"hi"});
     })
 	
 	socket.on("new_message",function(data){

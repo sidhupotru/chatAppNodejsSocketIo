@@ -119,6 +119,14 @@ $(function(){
 	
 	socket.on("client_disconnected",function(data){
 		alert("Client Disconnected");
+		$("#client_"+data.clientData.user).remove();
+		var index=usersarray.indexOf(data.clientData.user);
+		usersarray.splice(index,1);
+		if(usersarray.length==0){
+			$("#serverForm").attr('style',"display:none");
+			// $sss("#server-messages").html("");
+			$("#waiting-msg").show();
+		}
 	});
 	
 	socket.on("user_busy",function(data){
